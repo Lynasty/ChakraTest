@@ -2,37 +2,28 @@ import React from 'react';
 import {
   ChakraProvider,
   Box,
-  Text,
-  Link,
-  VStack,
-  Code,
   Grid,
-  theme,
+  Container,
+  chakra,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import ProductCard from './components/ProductCard';
+import myTheme from './theme/myTheme';
+import ButtonFB from './customComponent/Button/ButtonFB';
 
 function App() {
+
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider theme={myTheme}>
       <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
+        <Grid p={3}>
           <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
+          <Container bg='blue.600' centerContent py={8}>
+            <ProductCard />
+            <Box mt={2}>
+              <ButtonFB textBtn="Click Me" />
+            </Box>
+          </Container>
         </Grid>
       </Box>
     </ChakraProvider>
